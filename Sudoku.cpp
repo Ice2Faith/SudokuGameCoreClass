@@ -175,9 +175,9 @@ bool Sudoku::LineColsOnly(int rindex, int cindex)
 		existValue[i] = 0;
 	}
 
-	for (int i = bline; i < bline + 3; i++)
+	for (int i = bline*3; i < bline*3 + 3; i++)
 	{
-		for (int j = bcol; j < bcol + 3; j++)
+		for (int j = bcol*3; j < bcol*3 + 3; j++)
 		{
 			if (this->Map[(i)*(this->Cols) + (j)]>0)
 			{
@@ -189,7 +189,7 @@ bool Sudoku::LineColsOnly(int rindex, int cindex)
 	for (int i = 1; i < 10; i++)
 	{
 		if (existValue[i]>1)
-			lineonly = false;
+			blockonly = false;
 	}
 	return lineonly&&colonly&&blockonly;
 }
